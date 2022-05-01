@@ -1,2 +1,1 @@
-1. Add typescript
-2. Add prettier
+1. Add prettier

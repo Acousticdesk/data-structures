@@ -1,0 +1,24 @@
+{
+  "name": "data-structures",
+  "version": "1.0.0",
+  "description": "",
+  "main": "array.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Acousticdesk/data-structures.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Acousticdesk/data-structures/issues"
+  },
+  "homepage": "https://github.com/Acousticdesk/data-structures#readme",
+  "dependencies": {
+    "typescript": "^4.6.4"
+  }
+}
