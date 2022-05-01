@@ -1,8 +1,6 @@
 "use strict";
 class Utils {
-    constructor() {
-        this.previousId = 0;
-    }
+    previousId = 0;
     generateUniqueId() {
         return ++this.previousId;
     }

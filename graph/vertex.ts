@@ -1,26 +1,26 @@
-const { Utils } = require('./utils');
+import { IVertex } from './vertex.interface';
+import { Utils } from './utils';
 
 const utils = new Utils();
 
 // todo use bridge? pattern
-class Vertex {
-  edges = {};
+export class Vertex {
+  edges: { [key: string]: IVertex } = {};
+  name: string | null;
 
   constructor(name = null) {
     this.name = name;
   }
 
-  addEdge(vertex) {
+  addEdge(vertex: IVertex) {
     this.edges[utils.generateUniqueId()] = vertex;
 
     return this;
   }
 
-  removeEdge(name) {
+  removeEdge(name: string) {
     delete this.edges[name];
 
     return this;
   }
 }
-
-module.exports = { Vertex };

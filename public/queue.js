@@ -1,5 +1,8 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Queue = void 0;
 class Queue {
+    data;
     constructor(data = []) {
         this.data = data;
     }
@@ -15,6 +18,4 @@ class Queue {
         return this.data[0];
     }
 }
-module.exports = {
-    Queue,
-};
+exports.Queue = Queue;

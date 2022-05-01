@@ -1,13 +1,13 @@
 "use strict";
-const { Queue } = require('../queue');
-const { GraphLogger } = require('./graph-logger');
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Graph = void 0;
+const queue_1 = require("../queue");
+const graph_logger_1 = require("./graph-logger");
 class Graph {
-    constructor() {
-        this.visitedVertexes = {};
-        this.bstQueue = new Queue();
-    }
+    visitedVertexes = {};
+    bstQueue = new queue_1.Queue();
     BST(vertex) {
-        GraphLogger.logBSTInit(vertex.name);
+        graph_logger_1.GraphLogger.logBSTInit(vertex.name);
         this.bstQueue.enqueue(vertex);
         while (this.bstQueue.peek()) {
             const nextVertex = this.bstQueue.dequeue();
@@ -16,10 +16,10 @@ class Graph {
             }
             this.visitedVertexes[nextVertex.name] = true;
             const nextVertexAdjacentVertexes = Object.values(nextVertex.edges);
-            GraphLogger.logBSTTick(nextVertex.name);
+            graph_logger_1.GraphLogger.logBSTTick(nextVertex.name);
             nextVertexAdjacentVertexes.forEach((adjacentVertex) => this.bstQueue.enqueue(adjacentVertex));
         }
         this.visitedVertexes = {};
     }
 }
-module.exports = { Graph };
+exports.Graph = Graph;

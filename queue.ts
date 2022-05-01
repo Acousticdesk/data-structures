@@ -1,9 +1,11 @@
-class Queue {
-  constructor(data = []) {
+export class Queue<T> {
+  data: T[];
+
+  constructor(data: T[] = []) {
     this.data = data;
   }
 
-  enqueue(item) {
+  enqueue(item: T) {
     this.data.push(item);
   }
 
@@ -16,8 +18,4 @@ class Queue {
   peek() {
     return this.data[0];
   }
-}
-
-module.exports = {
-  Queue,
 }

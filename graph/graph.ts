@@ -1,17 +1,18 @@
-const { Queue } = require('../queue');
-const { GraphLogger } = require('./graph-logger');
+import { Queue } from '../queue';
+import { GraphLogger } from './graph-logger';
+import { IVertex } from './vertex.interface';
 
-class Graph {
-  visitedVertexes = {};
-  bstQueue = new Queue();
+export class Graph {
+  visitedVertexes: { [key: string]: boolean } = {};
+  bstQueue = new Queue<IVertex>();
 
-  BST(vertex) {
+  BST(vertex: IVertex) {
     GraphLogger.logBSTInit(vertex.name);
 
     this.bstQueue.enqueue(vertex);
 
     while (this.bstQueue.peek()) {
-      const nextVertex = this.bstQueue.dequeue();
+      const nextVertex = this.bstQueue.dequeue() as IVertex;
 
       if (this.visitedVertexes[nextVertex.name]) {
         continue;
@@ -29,5 +30,3 @@ class Graph {
     this.visitedVertexes = {};
   }
 }
-
-module.exports = { Graph }

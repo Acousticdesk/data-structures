@@ -1,10 +1,13 @@
 "use strict";
-const { Utils } = require('./utils');
-const utils = new Utils();
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Vertex = void 0;
+const utils_1 = require("./utils");
+const utils = new utils_1.Utils();
 // todo use bridge? pattern
 class Vertex {
+    edges = {};
+    name;
     constructor(name = null) {
-        this.edges = {};
         this.name = name;
     }
     addEdge(vertex) {
@@ -16,4 +19,4 @@ class Vertex {
         return this;
     }
 }
-module.exports = { Vertex };
+exports.Vertex = Vertex;
