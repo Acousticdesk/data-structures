@@ -25,6 +25,8 @@ class Graph {
 
       nextVertexAdjacentVertexes.forEach((adjacentVertex) => this.bstQueue.enqueue(adjacentVertex));
     }
+
+    this.visitedVertexes = {};
   }
 }
 
