@@ -1,5 +1,5 @@
-export default class Queue {
-  constructor(data) {
+class Queue {
+  constructor(data = []) {
     this.data = data;
   }
 
@@ -11,4 +11,13 @@ export default class Queue {
   dequeue() {
     return this.data.shift();
   }
+
+  // Check what is the standard name
+  peek() {
+    return this.data[0];
+  }
+}
+
+module.exports = {
+  Queue,
 }

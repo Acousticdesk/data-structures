@@ -11,4 +11,6 @@ toothpaste.addEdge(floss);
 toothbrush.addEdge(toothbrushHolder);
 toothbrushHolder.addEdge(toothbrush);
 
-Graph.BST(toothpaste);
+const pharmacyRecommendationsGraph = new Graph();
+
+pharmacyRecommendationsGraph.BST(toothpaste)

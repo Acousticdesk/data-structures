@@ -1,10 +1,30 @@
+const { Queue } = require('../queue');
+const { GraphLogger } = require('./graph-logger');
+
 class Graph {
-  visitedVertexes = [];
+  visitedVertexes = {};
+  bstQueue = new Queue();
 
   BST(vertex) {
-    const adjacentVertexes = Object.values(vertex.edges);
+    GraphLogger.logBSTInit(vertex.name);
 
-    adjacentVertexes.forEach((adjacentVertex) => this.BST(adjacentVertex));
+    this.bstQueue.enqueue(vertex);
+
+    while (this.bstQueue.peek()) {
+      const nextVertex = this.bstQueue.dequeue();
+
+      if (this.visitedVertexes[nextVertex.name]) {
+        continue;
+      }
+
+      this.visitedVertexes[nextVertex.name] = true;
+
+      const nextVertexAdjacentVertexes = Object.values(nextVertex.edges);
+
+      GraphLogger.logBSTTick(nextVertex.name);
+
+      nextVertexAdjacentVertexes.forEach((adjacentVertex) => this.bstQueue.enqueue(adjacentVertex));
+    }
   }
 }
 
